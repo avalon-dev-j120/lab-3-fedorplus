@@ -12,6 +12,7 @@ public class Calculator extends JFrame{
     JButton eq = new JButton("=");  
     
     
+    
     public Calculator(){
     setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     setLocationByPlatform(true);
@@ -51,6 +52,7 @@ public class Calculator extends JFrame{
     calButtoms.add(new JButton("/"));
     add (calButtoms, BorderLayout.CENTER);
     
+    eq.setBounds(100, 100, 100, 100);
     add(eq, BorderLayout.SOUTH);
     
     

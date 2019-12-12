@@ -71,31 +71,29 @@ public class AnotherCalc extends JFrame {
         gbc.weightx = 0.0;
         makebutton("=", gridBag, gbc, 0, 5, act);
 
-        //setSize(250, 300);
-        
         setPreferredSize(new Dimension(250, 300));
         setMinimumSize(new Dimension(180, 240));
         setMaximumSize(new Dimension(300, 360));
-        
-       
-        
+        setVisible(true);
+
     }
-     // lets try
-        public void paint(Graphics g) {
-                Dimension d = getSize();
-                Dimension m = getMaximumSize();
-                boolean resize = d.width > m.width || d.height > m.height;
-                d.width = Math.min(m.width, d.width);
-                d.height = Math.min(m.height, d.height);
-                if (resize) {
-                    Point p = getLocation();
-                    setVisible(false);
-                    setSize(d);
-                    setLocation(p);
-                    setVisible(true);
-                }
-                super.paint(g);
-            }
+    // lets try
+
+    public void paint(Graphics g) {
+        Dimension d = getSize();
+        Dimension m = getMaximumSize();
+        boolean resize = d.width > m.width || d.height > m.height;
+        d.width = Math.min(m.width, d.width);
+        d.height = Math.min(m.height, d.height);
+        if (resize) {
+            Point p = getLocation();
+            setVisible(false);
+            setSize(d);
+            setLocation(p);
+            setVisible(true);
+        }
+        super.paint(g);
+    }
 
     private void makebutton(String name, GridBagLayout gridbag, GridBagConstraints gbc, Integer x, Integer y, ActionListener list) {
         Button button = new Button(name);
@@ -244,11 +242,12 @@ public class AnotherCalc extends JFrame {
     }
 
     public boolean isPrior(String cmd) {
-        if (cmd.equals("*") || cmd.equals("/")) {
-            return true;
-        } else {
-            return false;
-        }
+        return (cmd.equals("*") || cmd.equals("/"));
+//        if (cmd.equals("*") || cmd.equals("/")) {
+//            return true;
+//        } else {
+//            return false;
+//        }
     }
 
 }
